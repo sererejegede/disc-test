@@ -1,5 +1,5 @@
 <template>
-  <div style="position: fixed">
+  <div>
     <div class="chart">
       <div class="bar" :style="{ '--height': `${D}px` }"></div>
       <div class="bar" :style="{ '--height': `${I}px` }"></div>
@@ -20,6 +20,7 @@
         <b>C </b><span>({{ C }})</span>
       </div>
     </div>
+    <img src="../assets/img.png" alt="">
   </div>
 </template>
 
@@ -48,19 +49,33 @@ export default {
 
 <style>
 .chart {
-  width: 500px;
+  width: auto;
   height: 500px;
-  background-color: #f0e9e7;
+  background-color: #3c474b;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .bar {
+  --height: 250px;
   width: 50px;
   background-color: #993f3f;
   margin: auto auto 0;
   height: calc(var(--height) / 50 * 500);
   transition: height .5s;
+}
+
+.bar:nth-child(1) {
+  background-color: #c3e3ca;
+}
+.bar:nth-child(2) {
+  background-color: #fccdc0;
+}
+.bar:nth-child(3) {
+  background-color: #b6d9ef;
+}
+.bar:nth-child(4) {
+  background-color: #ffe6b0;
 }
 
 .category {
@@ -71,5 +86,10 @@ export default {
 
 .category div {
   text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 </style>

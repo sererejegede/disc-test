@@ -10,9 +10,8 @@
         animation="200"
         item-key="type"
       >
-        <template #item="{ element, index }">
+        <template #item="{ element }">
           <div class="item">
-            <span>{{ index + 1 }}</span>
             {{ element.value }}
           </div>
         </template>
@@ -58,24 +57,38 @@ export default {
 <style>
 .container {
   display: flex;
+  justify-content: center;
+  max-width: 1280px;
+  margin: 24px auto 0;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-right: 75px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4px;
+  margin-right: 10px;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wrapper:hover::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.wrapper:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .draggable {
-  margin-bottom: 25px;
-  margin-right: 25px;
   padding: 15px;
   background-color: #f0e9e7;
   display: inline-block;
 }
 
 .item {
-  width: 150px;
+  /*width: 100%;*/
   padding: 8px;
   border: 1px solid;
   border-radius: 5px;
@@ -89,5 +102,11 @@ export default {
 .ghost {
   opacity: 0;
   /* background-color: #89ceac; */
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-wrap: wrap;
+  }
 }
 </style>
